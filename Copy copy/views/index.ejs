@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chitter-Chatter</title>
+    <meta charset="utf-8" />
+
+    <!-- This line will help the website look great in any screen size -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- import stylesheet -->
+    <link rel="stylesheet" href="/css/Chitter_Chatter.css">
+    
+
+    <!-- import bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <!-- icons link - font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <% if (loggedIn) { %>
+    <body>
+      <br>
+      <br>
+      <br>
+      <section>
+        <div class="row d-flex flex-row justify-content-center bd-highlight">
+          <div class="col  border border-1 rounded ">
+            <span>
+              <img src="images/blankprofile.png" alt="">
+              <b><%= currentUser.fullName %></b>
+            </span>
+            <ul class="nav">
+              <li class="nav-item">
+                <!--  <a class="nav-link active" aria-current="page" href="#"> </a>-->
+                <a href="#explore"><i class="fa fa-fw fa-hashtag"></i> Explore</a>
+              </li>
+            </ul>
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="#notifications"
+                  ><i class="fa fa-fw fa-bell"></i> Notifications</a
+                >
+              </li>
+            </ul>
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="#messages"
+                  ><i class="fa fa-fw fa-envelope"></i> Messages</a
+                >
+              </li>
+            </ul>
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="#more"><i class="fa fa-fw fa-ellipsis-h"></i> More</a>
+              </li>
+            </ul>
+            <a class="btn btn-primary btn-sm " href="#" role="button">Post</a>
+          </div>
+          <div class="col-6 border border-1 rounded">
+            <form class=" row mt-8" id="form" action="/tweets/create" method="POST">
+              <div class="col-md-8 m-auto">
+                <div class="card card-body text-center" style="top: 10px !important;">
+                  <span>
+                    <img src="images/blankprofile.png" alt="">
+                    <b><%= currentUser.fullName %></b>
+                      @<%= currentUser.userName %>
+                  </span>
+                  <textarea rows = "5" name="description" id="inputDescription" class="form-control" autofocus></textarea>
+                  <br>
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Tweet</button>
+                </div>
+              </div>
+            </form> <br>
+          
+            <!-- User 1 -->
+            <div>
+              <img
+                src="https://cdn.glitch.com/eedd7988-6291-440f-9057-f1ade3a9d518%2Fundraw_profile_pic_ic5t.svg?v=1614302991093"
+                class="float-start"
+                alt="male profile"
+              />
+              <div>
+                <b> Jay Sen </b><span class="ref_username">@Jay </span
+                ><span class="time">3:50 PM </span
+                ><span>
+                  <a href="#"><i class="fa fa-fw fa-ellipsis-h"></i></a
+                ></span>
+              </div>
+              <div>
+                Chitter-Chatter is an Awesome Website!
+              </div>
+            </div>
+            <br />
+            <!-- User 2 -->
+            <div>
+              <img
+                src="https://cdn.glitch.com/eedd7988-6291-440f-9057-f1ade3a9d518%2Fundraw_profile_pic_ic5t-2.svg?v=1614308023352"
+                alt="male2 profile"
+                class="float-start"
+              />
+              <div>
+                <b> Craig H </b><span class="ref_username">@Craig </span
+                ><span class="time">10:30 PM </span
+                ><span>
+                  <a href="#"><i class="fa fa-fw fa-ellipsis-h"></i></a
+                ></span>
+              </div>
+              <div>
+                Can you can a can as a canner can can a can?
+              </div>
+            </div>
+            <br />
+            <!-- User 3 -->
+            <div>
+              <img
+                src="https://cdn.glitch.com/eedd7988-6291-440f-9057-f1ade3a9d518%2Fundraw_profile_pic_ic5t-3.svg?v=1614308213205"
+                class="float-start"
+                alt="female profile"
+              />
+              <div>
+                <b> Tammy </b><span class="ref_username">@Tam </span
+                ><span class="time">8:30 AM </span
+                ><span>
+                  <a href="#"><i class="fa fa-fw fa-ellipsis-h"></i></a
+                ></span>
+              </div>
+              <div>
+                Susie works in a shoeshine shop. Where she shines she sits, and
+                where she sits she shines.
+              </div>
+            </div>
+          </div>
+          <!-- Column 3-->
+          <div class="col border border-1 rounded d-flex flex-column">
+            <div class="col-12 border-col4 rounded ">
+              <h3>
+                What's Trending?
+              </h3>
+              <% if (tweets) { %>
+                <div class="card">
+                  <h5> <%= tweets[0].hashtag %></h5>
+                  <% for (var i = 0; i < tweets.length; i++) { %>
+                    <% if (i < 10) { %>
+                      <div class="container">
+                        <h5><b> <%= tweets[i].hashtag %></b></h5>
+                        <p> <%= tweets[i].description %></p>  
+                      </div>
+                    <% } %>
+                  <% } %>
+                </div>
+              <% } %>
+
+              <div class="card">
+                <div class="container">
+                  <p>Trending in Music</p>
+                  <h5><b>Bruno Mars</b></h5>
+                  <p>
+                    Bruno Mars announced an upcoming album with Anderson titled
+                    Silk Sonic
+                  </p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="container">
+                  <p>Trending in United States</p>
+                  <h5><b>#RIP Twitter</b></h5>
+                  <p>Twitter has gone crazy</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-12 border-col4 rounded">
+              <h3>
+                Who to Follow
+              </h3>
+              <div>
+                <!-- GitHub link -->
+                <!-- <img
+                src="../images/male_profile_blue.svg"
+                class="float-start"
+                alt="male profile"
+              /> -->
+  
+                <img
+                  src="https://cdn.glitch.com/eedd7988-6291-440f-9057-f1ade3a9d518%2Fundraw_male_avatar_323b.svg?v=1614295268247"
+                  class="float-start"
+                  alt="male profile"
+                />
+                <div>
+                  <span>
+                    John Smith
+                  </span>
+                  <br />
+                  <span class="">@JohnSmith</span>
+                </div>
+                <a class="btn btn-primary btn-sm " href="#" role="button"
+                  >Follow</a>
+
+                  
+              </div>
+              <div>
+                <!-- GitHub link -->
+                <!-- <img
+                src="../images/female_profile_blue.svg"
+                class="float-start"
+                alt="male profile"
+              /> -->
+  
+                <img
+                  src="https://cdn.glitch.com/eedd7988-6291-440f-9057-f1ade3a9d518%2Fundraw_female_avatar_w3jk.svg?v=1614296398386"
+                  class="float-start"
+                  alt="female profile"
+                />
+                <div>
+                  <span>
+                    Meghan Brown
+                  </span>
+                  <br />
+                  <span class="">@Meghan Brown</span>
+                </div>
+                <a class="btn btn-primary btn-sm " href="#" role="button"
+                  >Follow</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="text-center">
+        @2021 Chitter-Chatter
+      </footer>
+    </body>
+  <%} else {%>
+    <div class="row mt-5">
+      <div class="col-md-6 m-auto">
+        <div class="card card-body text-center " style="top: 100px !important;">
+          <h1><i class="fab fa-node-js fa-3x"></i></h1>
+          <h1>Welcome!</h1>
+          <div class="col-sm nav-align">
+            <p> Create a Account or Log In</p>
+            <a href="/users/new" class="btn btn-primary btn-block mb-2">Sign Up</a>
+            <a href="/users/login" class="btn btn-secondary btn-block">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% } %>
+  
+</html>

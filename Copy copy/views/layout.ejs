@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1" />
+  <title>Chitter Chatter</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <!-- <link rel="stylesheet" href="/public/css/Chitter_Chatter.css" /> -->
+  <link rel="stylesheet" href="/css/Chitter_Chatter.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-light  navbar-expand-sm ">
+    <div class="container-fluid ">
+
+       
+      <ul class="nav " id="nav">
+        <a class="navbar-brand" href="#">
+          <img src="https://cdn.glitch.com/eedd7988-6291-440f-9057-f1ade3a9d518%2Flogo.jpg?v=1614207428544"
+            alt="logo" />
+        </a>
+        <li class="nav-item">
+          <h1 id="title">Chitter~Chatter</h1>
+        </li>
+        
+          <% if (loggedIn) { %>
+            <br>
+            <br>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">
+                <span class="button">Home</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/tweets/new">
+                <span class="button">Tweets</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/users">
+                <span class="button">Profile</span>
+              </a>
+            </li>
+            <%} else {%>
+              <a href="/users/login"></a>
+              <% } %>
+
+       <!-- </div> -->
+
+      </ul>
+    </div>
+  </nav>
+
+  <section>
+    <div class="login ">
+      <% if (loggedIn) { %>
+        <p>
+          Logged in as
+          <a href="<%=`/users/${currentUser._id}`%>">
+            <%= currentUser.fullName %>
+          </a>
+          <span class="log-out">
+            <a href="/users/logout">Log out</a>
+          </span>
+        </p>
+        <%} else {%>
+          <a href="/users/login">Log In</a>
+          <% } %>
+    </div>
+    </div>
+    </div>
+    </nav>
+    <div class="flashes">
+      <% if (flashMessages) { %>
+        <% if (flashMessages.success) { %>
+          <div class="flash success">
+            <%= flashMessages.success %>
+          </div>
+          <% } else if (flashMessages.error) { %>
+            <div class="flash error">
+              <%= flashMessages.error %>
+            </div>
+            <% } %>
+              <% } %>
+    </div>
+
+    <div class="container">
+      <%- body %>
+    </div>
+  </section>
+</body>
+
+</html>

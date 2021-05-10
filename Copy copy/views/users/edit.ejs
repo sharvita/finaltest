@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <head>
+      <title>Edit Account Information</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="/css/Chitter_Chatter.css">
+    </head>
+  </head>
+
+  <body>
+    <div class="container data-form">
+      <form class="form-signin row mt-8" id="form" action="<%=`/users/${user._id}/update?_method=PUT`%>" method="POST" autofocus>
+        <div class="col-md-8 m-auto">
+          <div class="card card-body text-center" style="top: 100px  !important;">
+              <h2 class="form-signin-heading">Edit Account Information </h2>
+
+                <label for="inputFirstName">First Name:</label>
+                <input type="text" id="inputFirstName" name="first" value="<%= user.name.first %>">
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small> Error Message </small>
+                <br>
+
+                <label for="inputLastName">Last Name:</label>
+                <input type="text" id="inputLastName" name="last" value="<%= user.name.last %>"/>
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small> Error Message </small>
+                <br>
+
+                <label for="userName">Username:</label>
+                <input type="text" id="userName" name="userName" value="<%= user.userName %>"/>
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small> Error Message </small>
+                <br>
+
+                <label for="inputEmail">Email:</label>
+                <input type="email" class="input-box" id="inputEmail" name="email" value="<%= user.email %>" />
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small> Error Message </small>
+                <br>
+
+                <label for="inputPassword">Password:</label>
+                <input type="password" id="inputPassword" name="password" value="<%= user.password %>"/>
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small> Error Message </small>
+                <br>
+
+                <label for="securityquestion1" class="col-form-label" style="font-size: 18px">
+                  Security Question 1
+                </label>
+                <select id="securityquestion1" name="securityquestion1" value="<%= user.securityquestion1 %>" onchange="updateSecurity1View()">
+                  <option value="securityquestion1_q0"></option>
+                  <option value="securityquestion1_q1">What is the city you were born in?</option>
+                  <option value="securityquestion1_q2">What is your mother's maiden name?</option>
+                  <option value="securityquestion1_q3"> What is the the color of your first car? </option>
+                </select>
+                <div id="securityQuestion1Answer" class="form-group">
+                    <input type="text" id="securityQuestion1Answer" name="securityQuestion1Answer" value="<%= user.securityQuestion1Answer %>" class="input-box"/>
+                    <i class="fa fa-check-circle"></i>
+                    <i class="fa fa-exclamation-circle"></i>
+                    <small> Error Message </small>
+                </div>
+
+                <label for="securityquestion2" class="col-form-label" style="font-size: 18px">
+                  Security Question 2
+                </label>
+                <select id="securityquestion2" name="securityquestion2" value="<%= user.securityquestion2 %>" onchange="updateSecurity2View()">
+                  <option value="securityquestion2_q0"></option>
+                  <option value="securityquestion2_q1"> What is the city you were born in?</option>
+                  <option value="securityquestion2_q2">What is your mother's maiden name?</option>
+                  <option value="securityquestion2_q3">What is the the color of your first car?</option>
+                </select>
+                <div id="securityQuestion2Answer" class="form-group">
+                  <input type="text" id="securityQuestion2Answer" name="securityQuestion2Answer" value="<%= user.securityQuestion2Answer %>" class="input-box"/>
+                  <i class="fa fa-check-circle"></i>
+                  <i class="fa fa-exclamation-circle"></i>
+                  <small> Error Message </small>
+                </div>
+
+                <label for="securityquestion3" class="col-form-label" style="font-size: 18px">
+                  Security Question 3
+                </label>
+                <select id="securityquestion3" name="securityquestion3" value="<%= user.securityquestion3 %>" onchange="updateSecurity3View()">
+                  <option value="securityquestion3_q0"></option>
+                  <option value="securityquestion3_q1"> What is the city you were born in?</option>
+                  <option value="securityquestion3_q2">What is your mother's maiden name?</option>
+                  <option value="securityquestion3_q3"> What is the the color of your first car?</option>
+                </select>
+                <div id="securityQuestion3Answer" class="form-group">
+                  <input type="text" id="securityQuestion3Answer" name="securityQuestion3Answer" value="<%= user.securityQuestion3Answer %>" class="input-box" />
+                  <i class="fa fa-check-circle"></i>
+                  <i class="fa fa-exclamation-circle"></i>
+                  <small> Error Message </small>
+                </div>
+
+                <label for="date">Date of Birth:</label>
+                <input type="date" id="date" name="date" value="<%= user.date %>"/>
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small> Error Message </small>
+                <br>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" class="input-box" name="location" value="<%= user.location %>"/>
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small> Error Message </small>
+                <br>
+
+                <label for="biography">Bio:</label>
+                <input type="text" id="biography" class="input-box" name="biography" value="<%= user.biography %>"/>
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small> Error Message </small>
+                <br>
+
+                <div class="striped-border"></div>
+                
+                <button type="submit" class="btn btn-lg btn-primary btn-block" >Save</button>
+          
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="/public/sign-up/signup.js"></script>
+    <!-- <script type="text/javascript" src="../public/sign-up/signup.js"></script> -->
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+            crossorigin="anonymous"></script>
+    
+  </body>
+</html>

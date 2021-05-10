@@ -1,0 +1,43 @@
+<div class="center container" style="margin-top: 100px !important">
+  <h2 >Profile</h2>
+  <div >
+    <a class="button" href="/users/new">Create an Account</a>
+  </div>
+  <table class="table ">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>User Name</th>
+        <th>Edit Profile</th>
+        <th>Delete Account</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user=> { %>
+        <tr>
+          <td>
+            <a href="<%=`/users/${user._id}`%>">
+              <%= user.fullName %>
+            </a>
+          </td>
+          <td>
+            <%= user.email %>
+          </td>
+          <td>
+            <%= user.userName %>
+          </td>
+          <td>
+            <a href="<%=`/users/${user._id}/edit`%>">
+              Edit
+            </a>
+          </td>
+          <td>
+            <a href="<%=`/users/${user._id}/delete?_method=DELETE` %>"
+              onclick="return confirm('Are you sure you want to delete your account?')" a>Delete Account</a>
+          </td>
+        </tr>
+        <% }); %>
+    </tbody>
+  </table>
+</div>

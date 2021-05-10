@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css?family=Baloo+Bhaina");
+
+/* .logo{
+    width: 50px;
+    border-radius: 50%;
+} */
+
+body {
+  margin: 0;
+  padding-top: 40px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #625a56;
+  
+}
+
+#nav {
+  width: 100%;
+  height: 110px;
+  padding: 20px 0 5px 0;
+  border-bottom: solid 8px #fd4e33d5;
+  box-shadow: 10px 10px 10px #ccc;
+  position: absolute;
+  top: 300;
+  
+}
+
+#title {
+  color: #625a56;
+  margin: 0;
+  font-family: "Baloo Bhaina";
+  text-transform: uppercase;
+}
+
+/*img {
+  width: 100%;
+  border-radius: 50%;
+  align-items: center;
+}*/
+
+img {
+  width: 70px;
+  border-radius: 10%;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+#nav a {
+  text-decoration: none;
+}
+
+.nav-align {
+  text-align: center;
+  padding: 3px 0;
+}
+
+.container {
+  padding: 0% 10%;
+}
+
+.button {
+  background-color: #9c492b;
+  padding: 0.3vw 3vw;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.button:hover {
+  background-color: #ffb99f;
+  color: #ed4a0f;
+}
+
+
+.list-container {
+  padding: 0 20px;
+  border: 3px solid #ffb568;
+  border-radius: 1px;
+}
+
+.item-label {
+  font-weight: 600;
+  font-style: italic;
+  margin-right: 5px;
+}
+
+.data-form {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.data-form label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.data-form input {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  width: 100%;
+}
+
+.data-form i {
+  position: absolute;
+  visibility: hidden;
+  top: 40px;
+  right: 40px;
+}
+
+.data-form.success input {
+  border-color: #2ecc71;
+}
+
+.data-form.error input {
+  border-color: #e74c3c;
+}
+
+.data-form small {
+  color: #e74c3c;
+  position: absolute;
+  bottom: 2;
+  left: 0;
+  visibility: hidden;
+}
+
+.data-form.error small {
+  visibility: visible;
+}
+
+.sidenav {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  overflow:hidden;
+  background-color:#86e5ee; 
+}
+
+/* The navigation menu links */
+.sidenav a {
+  font-size: 20px;
+  color: black;
+  
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.hidden-text {
+  -webkit-text-security: disc;
+}
+
+.flash {
+  background: rgba(193, 255, 193, .7);
+  color: #625a56;
+  width: 100%;
+  text-align: center;
+  padding: 10px 30px;
+  position: absolute;
+  top: 110px;
+  z-index: 2;
+}
+
+.reset-btn {
+  background-color: #1c8adb;
+}
+
+.error {
+  color: #fff;
+  background: rgba(209, 46, 42, 0.7);
+}
+
+.login {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+button[type=submit] {
+  margin-top: 20px;
+  background-color: #fd4e33d5;
+  color: #fff;
+}
+
+.login {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  padding:10px;
+  background: #fd4e33d5;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.login p {
+  margin: 0;
+}
+
+.log-out {
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.striped-border {
+  border: 1px dashed #000;
+  width: 100%;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+@media (max-width: 760px) {
+  .login {
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 2vw;
+  }
+}
+
+.or {
+  background: #fff;
+  width: 30px;
+  margin: -19px auto 10px;
+}
+
+hr {
+  margin-top: 20px;
+  width: 80%;
+}

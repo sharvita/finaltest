@@ -1,0 +1,45 @@
+<h2 class="center">Tweets</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Tweet</th>
+      <th>#</th>
+      <th>Full Name</th>
+      <th>User Name</th>
+      <th>Tweet Date</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% tweets.forEach(tweet => { %>
+    <tr>
+      <td>
+        <a href="<%= `/tweets/${tweet._id}` %>">
+          <%= tweet.description %>
+        </a>
+      </td>
+      <td>
+          <%= tweet.hashtag %>
+      </td>
+      <td>
+        <b><%= currentUser.fullName %></b>
+      </td>
+      <td>
+        @<%= currentUser.userName %>
+      </td>
+      <td>
+        <%= tweet.date.toLocaleDateString() %>
+      </td>
+      <td>
+        <a href="<%=`tweets/${tweet._id}/edit`%>">
+          Edit
+        </a>
+      </td>
+      <td>
+        <a href="<%= `tweets/${tweet._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete the tweet?')" a>Delete</a>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

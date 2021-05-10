@@ -1,0 +1,12 @@
+<div class="container data-form">
+  <form class="form-signin row mt-8" id="form" action="<%=`/tweets/${tweet._id}/update?_method=PUT`%>" method="POST">
+    <div class="col-md-8 m-auto">
+      <div class="card card-body text-center">
+        <h2 class="form-signin-heading">Edit Tweet</h2>
+        <input type="text" id="hashtag" name="hashtag" value="<%= tweet.hashtag %>"/>
+        <textarea rows = "5" name="description" id="inputDescription" class="form-control" autofocus><%= tweet.description %></textarea>
+        <br /><button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+      </div>
+    </div>
+  </form>
+</div>

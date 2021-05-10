@@ -1,0 +1,29 @@
+<h2 class="center">Users that you follow</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Last</th>
+      <th>User Name</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% follow.forEach(follow => { %>
+    <tr>
+      <td>
+        <a href="<%= `/follow/${follow._id}` %>">
+          <%= follow.name %>
+        </a>
+      </td>
+      <td>
+        <%= follow.last %>
+      </td>
+      <td>
+        <%= follow.userName %>
+      </td>
+     
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
